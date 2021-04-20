@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'input_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           color: Color(0xFF040D21),
         ),
-        scaffoldBackgroundColor: Color(0xFF13242F),
+        scaffoldBackgroundColor: Color(0xFF040D21),
       ),
       home: Scaffold(
         appBar: AppBar(
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
           ),
           centerTitle: true,
         ),
+        body: InputPage(),
       ),
     );
   }
