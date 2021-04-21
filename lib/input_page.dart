@@ -5,7 +5,9 @@ import 'icon_content.dart';
 
 const bottomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFDA2E4C);
-const activeCardColour = Color(0xFF13242F);
+const activeCardColor = Color(0xFF13242F);
+const inactiveCardColor = Color(0xFF0D1A21);
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   @override
@@ -13,6 +15,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Gender selectedGender;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,17 +25,35 @@ class _InputPageState extends State<InputPage> {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: ReusableCard(
-                  colour: activeCardColour,
-                  cardChild:
-                      IconContent(icon: FontAwesomeIcons.mars, label: "MALE"),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedGender = Gender.male;
+                    });
+                  },
+                  child: ReusableCard(
+                    colour: selectedGender == Gender.male
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild:
+                        IconContent(icon: FontAwesomeIcons.mars, label: "MALE"),
+                  ),
                 ),
               ),
               Expanded(
-                child: ReusableCard(
-                  colour: activeCardColour,
-                  cardChild: IconContent(
-                      icon: FontAwesomeIcons.venus, label: "FEMALE"),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedGender = Gender.female;
+                    });
+                  },
+                  child: ReusableCard(
+                    colour: selectedGender == Gender.female
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild: IconContent(
+                        icon: FontAwesomeIcons.venus, label: "FEMALE"),
+                  ),
                 ),
               ),
             ],
@@ -39,7 +61,7 @@ class _InputPageState extends State<InputPage> {
         ),
         Expanded(
           child: ReusableCard(
-            colour: activeCardColour,
+            colour: activeCardColor,
           ),
         ),
         Expanded(
@@ -47,12 +69,12 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
               Expanded(
                 child: ReusableCard(
-                  colour: activeCardColour,
+                  colour: activeCardColor,
                 ),
               ),
               Expanded(
                 child: ReusableCard(
-                  colour: activeCardColour,
+                  colour: activeCardColor,
                 ),
               ),
             ],
