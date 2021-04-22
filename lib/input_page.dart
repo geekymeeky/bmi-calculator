@@ -5,8 +5,8 @@ import 'icon_content.dart';
 
 const bottomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFDA2E4C);
-const activeCardColor = Color(0xFF13242F);
-const inactiveCardColor = Color(0xFF0D1A21);
+const activeCardColor = Color(0xFF1D1F33);
+const inactiveCardColor = Color(0xFF111328);
 enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
