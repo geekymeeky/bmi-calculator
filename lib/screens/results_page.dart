@@ -1,6 +1,8 @@
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../constants.dart';
 
 class ResultsPage extends StatelessWidget {
@@ -16,6 +18,8 @@ class ResultsPage extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
               child: Text(
                 'Your Result',
                 textAlign: TextAlign.left,
@@ -43,11 +47,17 @@ class ResultsPage extends StatelessWidget {
                     'You BMI is quite low, you should eat more!',
                     style: kBodyTextStyle,
                     textAlign: TextAlign.center,
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
+          BottomButton(
+            buttonTitle: 'RECALCULATE',
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );
