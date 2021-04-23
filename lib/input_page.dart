@@ -211,7 +211,7 @@ class _InputPageState extends State<InputPage> {
             child: Center(
               child: Text(
                 'CALCULATE',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),
+                style: kLargeButtonTextStyle,
               ),
             ),
             color: kBottomContainerColor,
