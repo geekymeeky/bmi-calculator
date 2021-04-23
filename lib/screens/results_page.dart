@@ -6,6 +6,12 @@ import 'package:flutter/widgets.dart';
 import '../constants.dart';
 
 class ResultsPage extends StatelessWidget {
+  ResultsPage({this.bmiResult, this.resultText, this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,17 +42,33 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'NORMAL',
+                    resultText.toUpperCase(),
                     style: kResultTextStyle,
                   ),
-                  Text(
-                    '90.7',
-                    style: kBMITextStyle,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: <Widget>[
+                      Text(
+                        bmiResult,
+                        style: kBMITextStyle,
+                      ),
+                      Text('kg/m²', style: kLabelTextStyle)
+                    ],
                   ),
                   Text(
-                    'You BMI is quite low, you should eat more!',
+                    interpretation,
                     style: kBodyTextStyle,
                     textAlign: TextAlign.center,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Normal BMI of an adult ranges between 18.5 – 24.9 kg/m²',
+                      style: kLabelTextStyle,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ],
               ),
