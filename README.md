@@ -1,7 +1,5 @@
 # BMI Calculator
 
-![bmi-calculator](https://socialify.git.ci/geekymeeky/bmi-calculator/image?descriptionEditable=&owner=1&stargazers=1&theme=Light)
-
 
 ## Purpose
 
